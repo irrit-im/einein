@@ -26,7 +26,11 @@ def get_classes(module: ModuleType) -> dict[str, type]:
 
 
 def get_functions(module: ModuleType) -> dict[str, Callable]:
-    return dict(inspect.getmembers(module, inspect.isfunction))
+    return dict(
+        inspect.getmembers(
+            module, lambda m: inspect.isfunction(m) or inspect.ismethod(m)
+        )
+    )
 
 
 def get_class_objects(cls: type) -> list[Any]:
@@ -35,20 +39,23 @@ def get_class_objects(cls: type) -> list[Any]:
 
 def match_new(name: str, module: ModuleType) -> type | Callable:
     """Match functions/classes by their name.
-    NOTE that this will only work if the class name was not changed."""
+    NOTE that this will only work if the class name was not changed.
+    NOTE that this does not support overloading."""
 
     return next(obj for obj_name, obj in inspect.getmembers(module) if name == obj_name)
 
 
 def reload_module(module: ModuleType) -> None:
-    """note that the name does not include `.py`"""
     functions: dict[str, Callable] = get_functions(module)
     classes = get_classes(module)
     module = importlib.reload(module)
 
-    for name, func in functions.items():  # this does not work (whomp whomp)
+    for (
+        name,
+        func,
+    ) in functions.items():  # y this not work :(
         func.__code__ = match_new(name, module).__code__
-    for cls_name, cls in classes.items():  # this part works (yay)
+    for cls_name, cls in classes.items():
         for obj in get_class_objects(cls):
             obj.__class__ = match_new(cls_name, module)
 
