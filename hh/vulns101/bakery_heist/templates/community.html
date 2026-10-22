@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block page%}
+<div class="description">
+  <h1>The Swedish Chef's Bakery - Community</h1>
+  <p>
+    We are are <b>blessed</b> with a wonderful community of members!
+    Here are our friends!
+    <br>
+    <ul class="list-group list-group-flush">
+        {% for user, is_banned in users %}
+            <li class="list-group-item">
+                {% if is_banned %}
+                    <del>
+                {% endif %}
+                {{user}}
+                {% if is_banned %}
+                    </del>
+                    (Banned)
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+  </p>
+</div>
+{% endblock %}

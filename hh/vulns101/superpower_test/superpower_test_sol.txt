@@ -1,0 +1,1 @@
+just enter uppercase letters (2 different tests were done on the input, one was case sensitive and the other was not)
