@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block page%}
+<div class="pretty_box bg-light border border-danger rounded border-4">
+  <h1 class="font_fancy text-danger">Please Wait</h1>
+  <p class="h2" id="clock"></p>
+  <script src="static/customer-assistance.js"></script>
+  <p>
+    Please wait for a customer service representative to become available.
+  </p>
+  {% if resp is defined %}
+  <div class="alert alert-danger" role="alert">
+    {{resp}}
+  </div>  
+  {% endif %}
+  <form action="/contact" method="POST">
+    <input type="hidden" id="token" name="token" value="{{token}}">
+    <button type="submit" class="btn btn-danger font_fancy">I'm Done Waiting!</button>
+  </form>
+</div>
+{% endblock %}

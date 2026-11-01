@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block page%}
+<div class="description d-flex flex-column align-items-center">
+    <h1>Log In</h1>
+    <form method="POST" class="w-100">
+        {{ form.csrf_token }}
+        <div class="form-group row py-2">
+            <div class="col-sm"></div>
+            <div class="col-sm-7">
+                {{ form.username(class="form-control", placeholder="Username:", size=50) }}
+            </div>
+            <div class="col-sm"></div>
+        </div>
+        <div class="form-group row py-2">
+            <div class="col-sm"></div>
+            <div class="col-sm-7">
+                {{ form.password(class="form-control", placeholder="Password:", size=50) }}
+            </div>
+            <div class="col-sm"></div>
+        </div>
+        <div class="row py-2">
+            <div class="col-sm"></div>
+            <a href="/register" class="btn dark-btn col-sm-3 mx-2">Create a new account</a>
+            <a href="/recover" class="btn dark-btn col-sm-3 mx-2">Forgot your password?</a>
+            <div class="col-sm"></div>
+        </div>
+        <div class="d-flex justify-content-center w-100">
+            <button type="submit" class="btn light-btn px-5">Log-In</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

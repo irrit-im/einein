@@ -1,0 +1,54 @@
+{% extends "ctf-base.html" %}
+{% block title %} Loginify {% endblock %}
+
+{% block content%}
+    <!-- Page Content -->
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <script src="/static/main.js"></script>
+    <div class="container-fluid d-flex flex-column min-vh-100 dark-colors">
+        <header class="container-fluid text-center py-2">
+            <h2 class="display-2">Loginify</h2>
+            <ul class="list-inline">
+                <li class="list-inline-item">Simple.</li>
+                <li class="list-inline-item">Together.</li>
+                <li class="list-inline-item">Fingernail.</li>
+                <li class="list-inline-item">Online.</li>
+            </ul>
+        </header>
+        <div class="row flex-fill white-colors">
+            <div class="col-sm-4 d-flex flex-column explainer light-colors">
+                <div class="flex-grow-1">
+
+                    <p class="lead mt-2">We are <b>Loginify</b>. </p>
+                    <p>
+                        We are revolutionizing the website login form with our disruptive Login As A Service business model.
+                        We are the only company who offers <b>decentralized authentication</b> to your website's login through our <b>Stateless Zero-Knowledge RESTful JSON Buzzword API</b>.
+                    </p>
+                    <p>
+                        Our secret? We built a <b>colorful, Rust-based login ecosystem</b>, featuring our brand new <b>Cloud-Comportable Hybrid Quantum Blockchain Technology&trade;</b>.
+                    </p>
+                    <p class="lead"> Welcome to the Future </p>
+                    <p>
+                        Here you can have a taste of our revolutionary tech demo.
+                        You can create you own account and even change your account password, all with our bleeding edge security.
+                    </p>
+                    <p>
+                        To show you our dedication to security, we are offering a
+                        <b>1,000,000$ cash prize</b>
+                        to anyone capable of breaking into our example account "hack_me".
+                    </p>
+                    <p>
+                        Do you think you can beat us?
+                    </p>
+                </div>
+                <div class="container-fluid w-100 d-flex justify-content-end py-5">
+                    <a href="/" class="btn dark-btn"><i class="bi bi-house-door-fill"> Return Home </i></a>
+                </div>
+            </div>
+            <div class="col-sm-8 p-5">
+                {% block page %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

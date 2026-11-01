@@ -1,0 +1,42 @@
+/* include Google Web fonts: */
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Oswald');
+
+body {
+    background-image: url('img/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+    font-size: large;
+    font-family: Oswald
+}
+
+header {
+    animation: fadeIn 0.5s linear;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.font_fancy{
+    font-family: 'Pacifico', cursive;
+}
+
+.pretty_box {
+    left: 50%;
+    position: absolute;
+    top: 45%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+    padding: 20px;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+}

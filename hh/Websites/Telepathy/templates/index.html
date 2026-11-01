@@ -1,0 +1,65 @@
+{% extends "ctf-base.html" %}
+{% block title %} Telepathy {% endblock %}
+
+{% block content%}
+<link rel="stylesheet" type="text/css" href="static/main.css">
+<script src="static/main.js"></script>
+<header class="page-header header container-fluid">
+    <!-- Header Title-->
+    <div class="jumbotron text-center main-title" style="margin-bottom:0">
+        <h1 class="display-4">Concentrate...</h1>
+        <p class="lead">Channel your energy and clear your aura. A pure psyche will guess correctly.</p>
+    </div>
+    <!-- Container for Content -->
+    <div class="container" style="height: 80%;">
+        <div class="row" style="height: 80%;">
+            <!-- Guess form -->
+            <div class="col-sm-8 my-auto">
+                <div class="form-wrapper">
+                    <form action='/' method="POST">
+                        <div class="input-group form-group">
+                            <input type="text" class="form-control" placeholder="My name starts with a T, what is my name?" onkeydown="return /[a-z]/i.test(event.key)" name="guess">
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <input type="submit" value="Send Guess" class="btn float-right guess_btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Psychic OoOoOoOoOo-->
+            <div class="col-sm-4 my-auto">
+                <div class="progress-wrapper">
+                    <p class="h2">
+                        {% if increment is defined %}
+                        Checking Guess...
+                        {% else %}
+                        Make a Guess.
+                        {% endif %}
+                    </p>
+                    <br>
+                    <img src='/img/hypnosis.png' style='width: 80%' class="rounded border-0">
+                    <br>
+                    <br>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"
+                            id="progressBar"></div>
+                    </div>
+                    <br>
+                    <p class="h4" id="result" style="visibility: hidden;">
+                        {% if increment is defined %}
+                            {{result}}
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% if increment is defined %}
+    <script>
+        $(document).ready(updateProgress(0, {{increment}}));
+    </script>
+{% endif %}
+{% endblock %}

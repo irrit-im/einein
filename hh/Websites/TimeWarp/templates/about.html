@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block page%}
+<div class="container align-middle mt-5">
+  <p class="h1 font_fancy text-center text-light">
+    Who are we?
+  </p>
+  <div class="row align-items-center">
+    <div class="col-sm-3 my-auto">
+      <img src="img/ceo.jpg" class="img-fluid border border-danger rounded" />
+      <div class="container-fluid border border-danger rounded border-3 bg-light text-center">
+        <strong>Our CEO, Grumpy Cat</strong>
+      </div>
+    </div>
+    <div class="col-sm-9 my-auto">
+      <div class="container-fluid border border-danger rounded border-4 bg-light">
+        <p>
+          We are a small company of human-torturing monsters which helps companies solve their customers' issues.
+          We believe, that any issue raised by customers is a waste of our time and should be disregarded as blatantly
+          as possible.
+          Moreover, the more cruel the response, the faster these annoying customers will realize their complaints are
+          nothing but annoying.
+        </p>
+        <p>
+          Our flagship product, is the online customer assistance program.
+          This allows companies to set up a "queue" for users in which they wait for a representative to become
+          available.
+          If the customer actually gets through the length queue, it is probably sufficiently important to find out what
+          they have to say.
+          It could be a news article about you!
+        </p>
+        <div style="text-align: center;">
+          <button onclick="changePage('contact')" class="btn btn-danger font_fancy">Try It Out</button>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

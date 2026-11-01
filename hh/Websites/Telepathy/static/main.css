@@ -1,0 +1,39 @@
+.main-title {
+    background-color: #6b5b95;
+    color: #feb236;
+}
+
+.header {
+    background-color: #feb236;
+    font-size: large;
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.form-wrapper {
+    text-align: center;
+    background-color: #6b5b95;
+    border-radius: 25px;
+    height: 20%;
+    padding: 30px;
+}
+
+.guess_btn{
+    color: black;
+    background-color: #ff7b25;
+    text-align: center;
+}
+
+.guess_btn:hover{
+    color: black;
+    background-color: #feb236;
+}
+
+.progress-wrapper {
+    text-align: center;
+    background-color: #6b5b95;
+    color: #ff7b25;
+    border-radius: 25px;
+    padding: 30px;
+}
