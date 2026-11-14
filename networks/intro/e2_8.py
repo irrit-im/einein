@@ -3,9 +3,10 @@ from random import randint
 from sys import argv
 from time import sleep
 
-FIRST_PORT = 8113
-DELAY = 1
-CLIENT_DELAY = 1
+FIRST_PORT = 8114
+DELAY = 0
+CLIENT_DELAY = 0
+MAX_MESSAGES = 10
 
 
 def choose_port() -> int:
@@ -13,7 +14,8 @@ def choose_port() -> int:
 
 
 def get_msg() -> str:
-    return input("Message to send: ")
+    # return input("Message to send: ")
+    return "YAY"
 
 
 def send(msg: str, sock: socket.socket, next_port: str) -> None:
@@ -31,7 +33,7 @@ def recv(sock: socket.socket) -> tuple[str, str]:
 
 def run_client(server_port: int) -> tuple[int, bool]:
     """returns next server port, and weather the program is exited"""
-    sleep(CLIENT_DELAY)
+    # sleep(CLIENT_DELAY)
     sock = socket.socket()
     print(f"client trying to connect to {server_port}...")
     sock.connect(("127.0.0.1", server_port))
@@ -67,15 +69,17 @@ def run_server(source_port: int) -> tuple[int, bool]:
 if __name__ == "__main__":
     side = argv[1].upper().strip()
     print(side in ("A", "B"))
-    assert side == "A" or side == "B", "argument `side`: A | B"
+    assert side == "A" or side == "B", "argument 'side': Literal['A' | 'B']"
 
     is_client = side == "B"
     server_port = FIRST_PORT
     exit = False
-    while not exit:
+    messages = 0
+    while not exit and messages <= MAX_MESSAGES:
         if is_client:
             server_port, exit = run_client(server_port)
         else:
             server_port, exit = run_server(server_port)
         is_client = not is_client
-        sleep(DELAY)
+        # sleep(DELAY)
+        messages += 1
